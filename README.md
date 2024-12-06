@@ -1,4 +1,4 @@
-# `Led_clock_app`
+# `LED_Clock_app`
 
 Welcome to your new `led_clock_app` project and to the Internet Computer development community. This clock was created using Rust and ReactJS in ICP to display local time on your web.
 
