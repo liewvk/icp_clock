@@ -1,0 +1,21 @@
+{
+    "canisters": {
+        "led_clock_app_backend": {
+            "main": "src/main.mo",
+            "type": "motoko"
+        }
+    },
+    "defaults": {
+        "build": {
+            "args": "",
+            "packtool": "vessel sources"
+        }
+    },
+    "networks": {
+        "local": {
+            "bind": "127.0.0.1:4943"
+        }
+    },
+    "version": 1,
+    "dfx": "0.24.0"
+}

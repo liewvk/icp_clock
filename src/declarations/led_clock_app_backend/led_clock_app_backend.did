@@ -1,0 +1,49 @@
+type StreamingStrategy = variant {
+                           Callback:
+                            record {
+                              callback: func () -> ();
+                              token: StreamingCallbackToken__1;
+                            };};
+type StreamingCallbackToken__1 = 
+ record {
+   content_encoding: text;
+   index: nat;
+   key: text;
+ };
+type StreamingCallbackToken = 
+ record {
+   content_encoding: text;
+   index: nat;
+   key: text;
+ };
+type StreamingCallbackResponse = 
+ record {
+   body: blob;
+   token: opt StreamingCallbackToken__1;
+ };
+type HttpResponse = 
+ record {
+   body: blob;
+   headers: vec record {
+                  text;
+                  text;
+                };
+   status_code: nat16;
+   streaming_strategy: opt StreamingStrategy;
+ };
+type HttpRequest = 
+ record {
+   body: blob;
+   headers: vec record {
+                  text;
+                  text;
+                };
+   method: text;
+   url: text;
+ };
+service : {
+  getTime: () -> (text) query;
+  http_request: (HttpRequest) -> (HttpResponse) query;
+  http_request_streaming_callback: (StreamingCallbackToken) ->
+   (StreamingCallbackResponse) query;
+}
